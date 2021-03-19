@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'com.c15'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // include postgresql JDBC driver
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+
+    implementation 'org.hibernate:hibernate-core:5.4.29.Final'
+    // lombok dependencies
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
